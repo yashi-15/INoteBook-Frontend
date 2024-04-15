@@ -4,10 +4,12 @@ const NoteItem = (props) => {
     const { note } = props;
     return (
         <div>
-            <div class="card m-3" style={{width: "18rem"}}>
-                <div class="card-body">
-                    <h5 class="card-title">{note.title}</h5>
-                    <p class="card-text">{note.description}</p>
+            <div className="card m-3" style={{width: "18rem"}}>
+                <div className="card-body">
+                    <h5 className="card-title">{note.title}</h5>
+                    <p className="card-text">{note.description}</p>
+                    <i className="fa-solid fa-file-pen m-2"></i>
+                    <i className="fa-sharp fa-solid fa-trash m-2"></i>
                 </div>
             </div>
         </div>
