@@ -10,13 +10,12 @@ const Notes = () => {
         getNotes();
     }, []);
 
-    const  [note, setNote] = useState({id:"" ,etitle:"", edescription:"", etag:"default"});
+    const  [note, setNote] = useState({id:"" ,etitle:"", edescription:"", etag:""});
 
     const HandleClick = (e)=>{
         console.log("updating the note", note)
         editNote(note.id, note.etitle, note.edescription, note.etag)
         refClose.current.click();
-        // addNote(note.title, note.description, note.tag);
     }
     
     const onChange = (e)=>{
@@ -71,7 +70,7 @@ const Notes = () => {
                             <button type="button" className="btn btn-secondary" ref={refClose} data-bs-dismiss="modal">
                                 Close
                             </button>
-                            <button type="button" className="btn btn-primary" onClick={HandleClick}>
+                            <button disabled={note.etitle.length < 3 || note.edescription.length < 5} type="button" className="btn btn-primary" onClick={HandleClick}>
                                 Save changes
                             </button>
                         </div>
@@ -80,6 +79,7 @@ const Notes = () => {
             </div>
             <div className="container">
                 <h1>Your Notes</h1>
+                {notes.length === 0 && 'No notes to display...'}
                 <div className="d-flex">
                     {notes.map((note) => {
                         return <NoteItem note={note} updateNote={updateNote} key={note._id} />;
