@@ -14,6 +14,8 @@ Backend - Check in this repository : https://github.com/yashi-15/INoteBook-Backe
 
 In the project directory, you can run:
 
+`npm install`
+
 `npm start`
 
 Runs the app in the development mode (FRONTEND ONLY)
