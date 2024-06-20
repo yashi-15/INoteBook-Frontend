@@ -38,14 +38,13 @@ const Notes = (props) => {
     const refClose = useRef(null)
     return (
         <>
-            <AddNote showalert= {props.showalert}/>
             <button type="button" className="btn btn-primary d-none" ref={ref} data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
             </button>
 
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade text-light" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content bg-dark">
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="exampleModalLabel">
                                 Edit Note
@@ -58,19 +57,19 @@ const Notes = (props) => {
                         <label htmlFor="title" className="form-label">
                             Title
                         </label>
-                        <input type="text" className="form-control" id="etitle" name= "etitle" value={note.etitle} onChange={onChange} />
+                        <input type="text" className="form-control bg-black text-light" id="etitle" name= "etitle" value={note.etitle} onChange={onChange} />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="description" className="form-label">
                         Description
                         </label>
-                        <input type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} />
+                        <input type="text" className="form-control bg-black text-light" id="edescription" name="edescription" value={note.edescription} onChange={onChange} />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="tag" className="form-label">
                         Tag
                         </label>
-                        <input type="text" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} />
+                        <input type="text" className="form-control bg-black text-light" id="etag" name="etag" value={note.etag} onChange={onChange} />
                     </div>
                 </form>
                         </div>
@@ -86,9 +85,9 @@ const Notes = (props) => {
                 </div>
             </div>
             <div className="container">
-                <h1>Your Notes</h1>
+                <h1 className="text-light">Your Notes 📝</h1>
                 {notes.length === 0 && 'No notes to display...'}
-                <div className="d-flex">
+                <div className="d-flex flex-wrap m-3">
                     {notes.map((note) => {
                         return <NoteItem note={note} updateNote={updateNote} showalert= {props.showalert} key={note._id} />;
                     })}
