@@ -12,3 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.fa-plus{
+  transform:scale(2);
+}
+
+.fa-plus:hover{
+  cursor: pointer;
+  transform:scale(2.3);
+}
+
+.fa-file-pen:hover, .fa-trash:hover{
+  cursor:pointer;
+  transform:scale(1.2);
+}

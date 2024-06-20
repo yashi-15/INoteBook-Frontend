@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import AddNote from "./AddNote";
 
 const NavBar = (props) => {
     const handleLogout = () => {
@@ -30,9 +29,6 @@ const NavBar = (props) => {
                             </Link>
                         </li>
                     </ul>
-                    <div>
-                        <AddNote showalert={props.showalert} />
-                    </div>
                     <div className="mx-5 my-2">
                         {!localStorage.getItem("token") ? (
                             <div>

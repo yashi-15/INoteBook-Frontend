@@ -21,11 +21,8 @@ const AddNote = (props) => {
 
     return (
         <div>
-            <div className="container">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Add a new note
-                </button>
-
+            <div className="container m-5">
+                <i class="fa-solid fa-plus fa-2xl text-light mx-5" style={{color: "#ffffff;"}} data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
                 <div class="modal fade text-light" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog ">
                         <div class="modal-content bg-dark">

@@ -1,45 +1,45 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import NoteContext from "../context/notes/noteContext";
 import UserContext from "../context/user/userContext";
+import AddNote from "./AddNote";
 import NoteItem from "./NoteItem";
 import { useNavigate } from "react-router-dom";
 
 const Notes = (props) => {
-    const usercontext = useContext(UserContext)
-    const {user, getUser} = usercontext
+    const usercontext = useContext(UserContext);
+    const { user, getUser } = usercontext;
 
     const Notescontext = useContext(NoteContext);
     const { notes, getNotes, editNote } = Notescontext;
     var navigate = useNavigate();
     useEffect(() => {
-        if(localStorage.getItem("token")){
+        if (localStorage.getItem("token")) {
             getNotes();
             getUser();
-        }
-        else{
+        } else {
             navigate("/login");
         }
     }, []);
 
-    const  [note, setNote] = useState({id:"" ,etitle:"", edescription:"", etag:""});
+    const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etag: "" });
 
-    const HandleClick = (e)=>{
-        console.log("updating the note", note)
-        editNote(note.id, note.etitle, note.edescription, note.etag)
-        props.showalert("Note Updated Successfully!","success");
+    const HandleClick = (e) => {
+        console.log("updating the note", note);
+        editNote(note.id, note.etitle, note.edescription, note.etag);
+        props.showalert("Note Updated Successfully!", "success");
         refClose.current.click();
-    }
-    
-    const onChange = (e)=>{
-        setNote({...note, [e.target.name]: e.target.value})
-    }
+    };
+
+    const onChange = (e) => {
+        setNote({ ...note, [e.target.name]: e.target.value });
+    };
 
     const updateNote = (currentNote) => {
         ref.current.click();
-        setNote({id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag});
+        setNote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag });
     };
-    const ref = useRef(null)
-    const refClose = useRef(null)
+    const ref = useRef(null);
+    const refClose = useRef(null);
 
     return (
         <>
@@ -57,26 +57,26 @@ const Notes = (props) => {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                        <form>
-                    <div className="mb-3">
-                        <label htmlFor="title" className="form-label">
-                            Title
-                        </label>
-                        <input type="text" className="form-control bg-black text-light" id="etitle" name= "etitle" value={note.etitle} onChange={onChange} />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="description" className="form-label">
-                        Description
-                        </label>
-                        <input type="text" className="form-control bg-black text-light" id="edescription" name="edescription" value={note.edescription} onChange={onChange} />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="tag" className="form-label">
-                        Tag
-                        </label>
-                        <input type="text" className="form-control bg-black text-light" id="etag" name="etag" value={note.etag} onChange={onChange} />
-                    </div>
-                </form>
+                            <form>
+                                <div className="mb-3">
+                                    <label htmlFor="title" className="form-label">
+                                        Title
+                                    </label>
+                                    <input type="text" className="form-control bg-black text-light" id="etitle" name="etitle" value={note.etitle} onChange={onChange} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="description" className="form-label">
+                                        Description
+                                    </label>
+                                    <input type="text" className="form-control bg-black text-light" id="edescription" name="edescription" value={note.edescription} onChange={onChange} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="tag" className="form-label">
+                                        Tag
+                                    </label>
+                                    <input type="text" className="form-control bg-black text-light" id="etag" name="etag" value={note.etag} onChange={onChange} />
+                                </div>
+                            </form>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" ref={refClose} data-bs-dismiss="modal">
@@ -90,12 +90,17 @@ const Notes = (props) => {
                 </div>
             </div>
             <div className="container">
-                <h1 className="text-light">{user.name}'s Notes 📝</h1>
-                {notes.length === 0 && 'No notes to display...'}
-                <div className="d-flex flex-wrap m-3">
+                <h1 className="text-light">
+                    <span className="text-capitalize">{user.name}</span>'s Notes 📝
+                </h1>
+                <div className="m-5 text-light ">
+                {notes.length === 0 && "No notes to display..."}
+                <div className="d-flex flex-wrap m-3 align-items-center">
                     {notes.map((note) => {
-                        return <NoteItem note={note} updateNote={updateNote} showalert= {props.showalert} key={note._id} />;
+                        return <NoteItem note={note} updateNote={updateNote} showalert={props.showalert} key={note._id} />;
                     })}
+                    <AddNote showalert={props.showalert} />
+                </div>
                 </div>
             </div>
         </>
