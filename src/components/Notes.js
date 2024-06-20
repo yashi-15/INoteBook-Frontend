@@ -1,16 +1,20 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import NoteContext from "../context/notes/noteContext";
+import UserContext from "../context/user/userContext";
 import NoteItem from "./NoteItem";
-import AddNote from "./AddNote";
 import { useNavigate } from "react-router-dom";
 
 const Notes = (props) => {
-    const context = useContext(NoteContext);
-    const { notes, getNotes, editNote } = context;
+    const usercontext = useContext(UserContext)
+    const {user, getUser} = usercontext
+
+    const Notescontext = useContext(NoteContext);
+    const { notes, getNotes, editNote } = Notescontext;
     var navigate = useNavigate();
     useEffect(() => {
         if(localStorage.getItem("token")){
             getNotes();
+            getUser();
         }
         else{
             navigate("/login");
@@ -36,6 +40,7 @@ const Notes = (props) => {
     };
     const ref = useRef(null)
     const refClose = useRef(null)
+
     return (
         <>
             <button type="button" className="btn btn-primary d-none" ref={ref} data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -85,7 +90,7 @@ const Notes = (props) => {
                 </div>
             </div>
             <div className="container">
-                <h1 className="text-light">Your Notes 📝</h1>
+                <h1 className="text-light">{user.name}'s Notes 📝</h1>
                 {notes.length === 0 && 'No notes to display...'}
                 <div className="d-flex flex-wrap m-3">
                     {notes.map((note) => {
