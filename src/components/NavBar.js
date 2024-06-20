@@ -33,7 +33,7 @@ const NavBar = (props) => {
                     <div>
                         <AddNote showalert={props.showalert} />
                     </div>
-                    <div className="mx-5">
+                    <div className="mx-5 my-2">
                         {!localStorage.getItem("token") ? (
                             <div>
                                 <Link className="btn btn-primary mx-2" to="/login" role="button">
