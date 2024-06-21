@@ -44,9 +44,9 @@ const NavBar = (props) => {
                                 <i class="fa-solid fa-user fa-2xl" role="button" style={{ color: "#ffffff" }} data-bs-toggle="dropdown" aria-expanded="false"></i>
                                 <ul class="dropdown-menu bg-dark" style={{right:"10px", left:"unset", top:"40px"}}>
                                     <li>
-                                        <a class="dropdown-item text-primary" role="button" href="#">
+                                        <Link class="dropdown-item text-primary" role="button" to="/profile">
                                             Your Profile
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
                                         <a class="dropdown-item text-primary" role="button" onClick={handleLogout}>
