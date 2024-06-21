@@ -12,7 +12,7 @@ const NoteItem = (props) => {
             <div className="card m-2 bg-dark" style={{ width: "18rem" }}>
                 <div className="card-body">
                     <div className="d-flex justify-content-between">
-                        <h5 className="card-title text-primary">{note.title}</h5> <span className=" bg-opacity-25 text-secondary p-1 rounded-3 fs-6 fw-light">{note.tag}</span>
+                        <h5 className="card-title text-primary">{note.title}</h5> <span className="text-capitalize bg-opacity-25 text-secondary p-1 rounded-3 fs-6 fw-light">{note.tag}</span>
                     </div>
                     <p className="card-text text-light">{note.description}</p>
                     <i
