@@ -1,6 +1,6 @@
 # Notes App Frontend
 
-Users can save, edit and delete thier notes which are accessible only to them via login/signup.
+A CRUD application where users can save, edit and delete thier notes which are accessible only to them via login/signup.
 
 ![Screenshot (599)](https://github.com/yashi-15/INoteBook-Frontend/assets/132138302/788b35d1-f052-4eb7-bff7-5f14f5012014)
 
