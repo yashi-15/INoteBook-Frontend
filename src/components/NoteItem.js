@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import NoteContext from "../context/notes/noteContext";
 
 const NoteItem = (props) => {
     const context = useContext(NoteContext);
     const { deleteNote } = context;
     const { note, updateNote } = props;
+    const ref = useRef(null);
+    const refClose = useRef(null);
     return (
         <div>
             <div className="card m-2 bg-dark" style={{ width: "18rem" }}>
@@ -29,7 +31,7 @@ const NoteItem = (props) => {
                                 </div>
                                 <div class="modal-body">This note wil be deleted permanently. Are you sure?</div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    <button type="button" class="btn btn-secondary" ref={refClose} data-bs-dismiss="modal">
                                         Close
                                     </button>
                                     <button
@@ -37,6 +39,7 @@ const NoteItem = (props) => {
                                         class="btn btn-primary"
                                         onClick={() => {
                                             deleteNote(note._id);
+                                            refClose.current.click();
                                             props.showalert("Note deleted Successfully!", "success");
                                         }}
                                     >
