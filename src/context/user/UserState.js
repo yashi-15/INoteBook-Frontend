@@ -20,7 +20,25 @@ const UserState = (props) => {
         console.log(json);
     };
 
-    return <UserContext.Provider value={{ user, getUser }}>{props.children}</UserContext.Provider>;
+    //EDIT USER DETAILS
+    const editUser = async (_id, name, email, Date) => {
+        // API call
+        const response = await fetch(`${host}/api/auth/updateuser`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": localStorage.getItem('token'),
+            },
+            body: JSON.stringify({ name, email }),
+        });
+        const json = response.json();
+        console.log(json)
+
+        // client side
+        setUser({...user, name, email, Date})
+    };
+
+    return <UserContext.Provider value={{ user, getUser, editUser }}>{props.children}</UserContext.Provider>;
 };
 
 export default UserState;
