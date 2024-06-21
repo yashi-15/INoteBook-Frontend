@@ -30,21 +30,19 @@ const onChange = (e)=>{
 
     return (
         <div>
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmit} className="text-light">
+                <h1 className="mb-5">Login with your credentials</h1>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">
                         Email address
                     </label>
-                    <input type="email" className="form-control" id="email" name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" />
-                    <div id="emailHelp" className="form-text">
-                        We'll never share your email with anyone else.
-                    </div>
+                    <input type="email" className="form-control bg-dark text-light" id="email" name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">
                         Password
                     </label>
-                    <input type="password" className="form-control" id="password" name="password" value={credentials.password} onChange={onChange}/>
+                    <input type="password" className="form-control bg-dark text-light" id="password" name="password" value={credentials.password} onChange={onChange}/>
                 </div>
                 <button type="submit" className="btn btn-primary">
                     Submit

@@ -30,30 +30,31 @@ const Signup = (props) => {
     };
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="text-light">
+                <h1 className="mb-5">Create a new account</h1>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">
                         Name
                     </label>
-                    <input type="text" className="form-control" id="name" onChange={onChange} name="name" />
+                    <input type="text" className="form-control bg-dark text-light" id="name" onChange={onChange} name="name" />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">
                         Email address
                     </label>
-                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" onChange={onChange} name="email" />
+                    <input type="email" className="form-control bg-dark text-light" id="email" aria-describedby="emailHelp" onChange={onChange} name="email" />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">
                         Password
                     </label>
-                    <input type="password" className="form-control" id="password" onChange={onChange} name="password" />
+                    <input type="password" className="form-control bg-dark text-light" id="password" onChange={onChange} name="password" />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="cpassword" className="form-label">
                         Confirm Password
                     </label>
-                    <input type="password" className="form-control" id="cpassword" onChange={onChange} name="cpassword" />
+                    <input type="password" className="form-control bg-dark text-light" id="cpassword" onChange={onChange} name="cpassword" />
                 </div>
                 <button type="submit" className="btn btn-primary">
                     Submit

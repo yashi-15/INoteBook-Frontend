@@ -90,10 +90,10 @@ const Notes = (props) => {
                 </div>
             </div>
             <div className="container">
-                <h1 className="text-light">
+                <h1 className="text-light mb-5">
                     <span className="text-capitalize">{user.name}</span>'s Notes 📝
                 </h1>
-                <div className="m-5 text-light ">
+                <div className="text-light">
                 {notes.length === 0 && "No notes to display..."}
                 <div className="d-flex flex-wrap m-3 align-items-center">
                     {notes.map((note) => {
